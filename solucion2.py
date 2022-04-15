@@ -11,13 +11,11 @@ def leer_archivo(): # Metodo para leer el archivo
         fichero.close()
         for linea in lineas:
             lista.append(separador_cadena(linea))
-    except FileNotFoundError:
-        print("No se ha conseguido el archivo")        
     except:
-        print("Ha ocurrido un error con el archivo")
-    finally:
+        print("No se ha conseguido el archivo")        
         print("Ha finalizado el programa")
         quit()
+        
     
     
 def separador_cadena(linea): # Metodo que procesa la linea de entrada	
@@ -25,6 +23,32 @@ def separador_cadena(linea): # Metodo que procesa la linea de entrada
 	linea2=linea1.replace('-' , ' ')
 	cadenaespacios=linea2.split(' ')	
 	return cadenaespacios
+
+def primera_parte():
+	cont =0
+	for linea in lista:
+		li=int(linea[0])
+		ls=int(linea[1])
+		letra=(linea[2])
+		i=int(linea[3].count(letra))	
+		if (i>=li and i<=ls):
+			cont +=1
+	print("\nEn la primera parte hay ",cont," contraseñas validas en el input")
+
+def segunda_parte():
+	cont = 0
+	for linea in lista:
+		li=int(linea[0])-1
+		ls=int(linea[1])-1
+		letra=linea[2]	
+		contrasena=linea[3]
+		if(contrasena[li]==letra):
+			if(contrasena[ls]!=letra):
+				cont += 1
+		else:
+			if(contrasena[ls]==letra):
+				cont += 1
+	print("\nEn la segunda parte hay ",cont," contraseñas validas en el input")
 
 leer_archivo()
 
@@ -35,9 +59,9 @@ while (resp!= '3'):
 	print("3.- Salir")	
 	resp = input("Opcion: ")
 	if (resp == '1'):
-		pass#primera_parte()
+		primera_parte()
 	elif (resp == '2'):
-		pass#segunda_parte()	
+		segunda_parte()	
 	elif (resp == '3'):
 		print("Adios...")
 	else:
