@@ -1,6 +1,5 @@
 from io import open
 
-
 resp = "0"
 lista = []
 
@@ -14,9 +13,7 @@ def leer_archivo(): # Metodo para leer el archivo
     except:
         print("No se ha conseguido el archivo")        
         print("Ha finalizado el programa")
-        quit()
-        
-    
+        quit()         
     
 def separador_cadena(linea): # Metodo que procesa la linea de entrada	
 	linea1=linea.replace(':' , '')
@@ -35,7 +32,7 @@ def primera_parte():
 			cont +=1
 	print("\nEn la primera parte hay ",cont," contraseñas validas en el input")
 
-def segunda_parte():
+def segunda_parte(): 
 	cont = 0
 	for linea in lista:
 		li=int(linea[0])-1
@@ -52,7 +49,7 @@ def segunda_parte():
 
 leer_archivo()
 
-while (resp!= '3'):	
+while (resp!= '3'):	# Menú de opciones
 	print("\n**  Menú  ***")
 	print("1.- Primera parte ")
 	print("2.- Segunda parte")
